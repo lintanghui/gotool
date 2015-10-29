@@ -14,7 +14,7 @@ var defFile string = "Crash.log"
 
 func Crash() {
     if err := recover(); err != nil {
-        fd, err := os.OpenFile(defFile, os.O_RDONLY|os.O_APPEND|os.O_APPEND, 0644)
+        fd, err := os.OpenFile(defFile, os.O_WRONLY|os.O_APPEND|os.O_CREATE, 0644)
         if err != nil {
             fmt.Println("open file :%s fail ,err :%s", defFile, err.Error())
             return
